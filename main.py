@@ -13,8 +13,8 @@ class NewSpider(scrapy.Spider):
                 'Image Link': x.xpath(newsel).extract_first(),
             }
 
-            Page_selector = '.next a ::attr(href)'
-            next_page = response.css(Page_selector).extract_first()
+            page_selector = '.next a ::attr(href)'
+            next_page = response.css(page_selector).extract_first()
             if next_page:
                 yield scrapy.Request(
                     response.urljoin(next_page),
